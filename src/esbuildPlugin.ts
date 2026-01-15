@@ -3,9 +3,6 @@
 // CHANGELOG:
 // made it so that css can be emmitted directly as js instead of as an import
 
-'use strict'
-Object.defineProperty(exports, '__esModule', { value: true })
-
 import type { Plugin, TransformOptions } from 'esbuild'
 import { readFile } from 'fs/promises'
 import { parse } from 'path'
