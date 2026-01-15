@@ -1,7 +1,7 @@
 // FIXME - remove this ts nocheck once blockbench-types update
 // @ts-nocheck
 
-import 'blockbench-types'
+/// <reference types="blockbench-types" />
 
 import { mount, unmount, type Component } from 'svelte'
 import type { ComponentMountOptions, GenericComponent } from '../svelteHelperTypes'

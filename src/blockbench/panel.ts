@@ -1,7 +1,7 @@
 // FIXME - remove this ts nocheck once blockbench-types update
 // @ts-nocheck
 
-import 'blockbench-types'
+/// <reference types="blockbench-types" />
 
 import { pollUntilResult } from '../polling'
 import { mount, unmount } from 'svelte'
