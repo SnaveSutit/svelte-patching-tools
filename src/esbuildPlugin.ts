@@ -72,7 +72,7 @@ function convertWarning(source: any, { message, filename, start, end }: any) {
 
 export function esbuildPluginSvelte(pluginOptions: PluginOptions): Plugin {
 	return {
-		name: 'esbuild-plugin-svelte',
+		name: 'esbuild-plugin-svelte-patching-tools',
 		setup(build) {
 			/** A cache of the compiled CSS. */
 			const cache = new Map()
