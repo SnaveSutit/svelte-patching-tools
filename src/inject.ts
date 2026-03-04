@@ -2,8 +2,10 @@ import { pollUntilResult } from './polling'
 import { mount, unmount, type Component } from 'svelte'
 import type { ComponentMountOptions } from './svelteHelperTypes'
 
-interface InjectSvelteComponentOptions<C extends Component<any, any>, E extends HTMLElement>
-	extends ComponentMountOptions<C> {
+interface InjectSvelteComponentOptions<
+	C extends Component<any, any>,
+	E extends HTMLElement,
+> extends ComponentMountOptions<C> {
 	/**
 	 * A function that returns the element to inject the component into.
 	 *
