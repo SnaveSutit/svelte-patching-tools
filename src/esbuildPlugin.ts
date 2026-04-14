@@ -153,7 +153,7 @@ export function createBlockbenchSvelteConfig(
 ): PluginOptions {
 	pluginOptions.compilerOptions ??= {}
 	pluginOptions.compilerOptions.dev ??= process.env.NODE_ENV === 'development'
-	pluginOptions.compilerOptions.runes ??= true
+	// pluginOptions.compilerOptions.runes ??= true
 
 	pluginOptions.preprocess ??= []
 	if (!Array.isArray(pluginOptions.preprocess)) {
