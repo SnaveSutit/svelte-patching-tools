@@ -1,6 +1,6 @@
 {
 	"name": "svelte-patching-tools",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"files": [
 		"dist"
 	],
@@ -35,20 +35,20 @@
 		"prepublishOnly": "bun run build"
 	},
 	"dependencies": {
-		"blockbench-types": "^5.0.6",
-		"svelte": "^5.46.3",
+		"blockbench-types": "^5.1.0",
+		"svelte": "^5.55.4",
 		"svelte-observable-store": "^1.0.1",
 		"svelte-preprocess": "^6.0.3",
 		"svelte-preprocess-esbuild": "^3.0.1"
 	},
 	"devDependencies": {
 		"@types/node": "^25.0.8",
-		"esbuild": "^0.27.2",
+		"esbuild": "^0.27.7",
 		"eslint-plugin-check-file": "^3.3.1",
 		"eslint-plugin-svelte": "^3.14.0",
 		"jiti": "^2.6.1",
-		"svelte-eslint-parser": "^1.4.1",
+		"svelte-eslint-parser": "^1.6.0",
 		"typescript": "^5.9.3",
-		"typescript-eslint": "^8.53.0"
+		"typescript-eslint": "^8.58.2"
 	}
 }

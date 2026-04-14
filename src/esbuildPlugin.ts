@@ -7,8 +7,9 @@ import type { Plugin, TransformOptions } from 'esbuild'
 import { readFile } from 'fs/promises'
 import { parse } from 'path'
 import { sveltePreprocess } from 'svelte-preprocess'
+// @ts-expect-error - No types available for this package
 import { typescript } from 'svelte-preprocess-esbuild'
-import type { PreprocessorGroup } from 'svelte-preprocess/dist/types'
+import type { PreprocessorGroup } from '../node_modules/svelte-preprocess/dist/types'
 import type { CompileOptions, CompileResult, ModuleCompileOptions } from 'svelte/compiler'
 import { compile, preprocess } from 'svelte/compiler'
 
