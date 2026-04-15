@@ -17,14 +17,13 @@ export class SveltePanel<C extends GenericComponent> extends Panel {
 	protected deleted = false
 
 	constructor(options: SveltePanelOptions<C>) {
-		const scope = this
-
+		const getScope = () => this
 		super(options.id, {
 			...options,
 			component: {
 				template: '<div></div>',
 				mounted(this: Vue) {
-					scope.instance = mount(options.component, {
+					getScope().instance = mount(options.component, {
 						target: this.$el.parentElement!,
 						props: options.props,
 						intro: options.intro,
@@ -32,6 +31,7 @@ export class SveltePanel<C extends GenericComponent> extends Panel {
 					})
 				},
 				beforeDestroy(this: Vue) {
+					const scope = getScope()
 					if (scope.instance) {
 						void unmount(scope.instance).then(() => {
 							scope.instance = undefined
