@@ -3,7 +3,6 @@
 
 /// <reference types="blockbench-types" />
 
-import { pollUntilResult } from '../polling'
 import { mount, unmount } from 'svelte'
 import type { ComponentMountOptions, GenericComponent } from '../svelteHelperTypes'
 
@@ -18,28 +17,28 @@ export class SveltePanel<C extends GenericComponent> extends Panel {
 	protected deleted = false
 
 	constructor(options: SveltePanelOptions<C>) {
-		const mountId = `svelte-panel-` + options.id
+		const scope = this
 
 		super(options.id, {
 			...options,
 			component: {
 				name: options.id,
-				template: `<div id="${mountId}"></div>`,
-			},
-		})
-
-		void pollUntilResult(
-			() => {
-				return document.querySelector(`#${mountId}`)
-			},
-			() => this.deleted
-		).then(el => {
-			this.instance = mount(options.component, {
-				target: el!,
-				props: options.props,
-				intro: options.intro,
-				context: options.context,
-			})
+				mounted(this: Vue) {
+					scope.instance = mount(options.component, {
+						target: this.$el.parentElement!,
+						props: options.props,
+						intro: options.intro,
+						context: options.context,
+					})
+				},
+				destroyed(this: Vue) {
+					if (scope.instance) {
+						void unmount(scope.instance).then(() => {
+							scope.instance = undefined
+						})
+					}
+				},
+			} satisfies Vue.ComponentOptions,
 		})
 	}
 
