@@ -22,7 +22,7 @@ export class SveltePanel<C extends GenericComponent> extends Panel {
 		super(options.id, {
 			...options,
 			component: {
-				name: options.id,
+				template: '<div></div>',
 				mounted(this: Vue) {
 					scope.instance = mount(options.component, {
 						target: this.$el.parentElement!,
@@ -31,7 +31,7 @@ export class SveltePanel<C extends GenericComponent> extends Panel {
 						context: options.context,
 					})
 				},
-				destroyed(this: Vue) {
+				beforeDestroy(this: Vue) {
 					if (scope.instance) {
 						void unmount(scope.instance).then(() => {
 							scope.instance = undefined
