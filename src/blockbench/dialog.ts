@@ -21,7 +21,7 @@ interface SidebarPage<C extends GenericComponent> extends ComponentMountOptions<
 export class SvelteDialog<
 	C extends GenericComponent = Component,
 	Title extends GenericComponent = Component,
-	Footer extends GenericComponent = Component
+	Footer extends GenericComponent = Component,
 > extends Dialog {
 	protected instance?: ReturnType<typeof mount>
 	protected anchor: Comment
@@ -204,7 +204,7 @@ type SvelteDialogOptions<Title extends GenericComponent, Footer extends GenericC
 export class SvelteDialogSidebar<
 	Pages extends PageMap,
 	Title extends GenericComponent = Component,
-	Footer extends GenericComponent = Component
+	Footer extends GenericComponent = Component,
 > extends SvelteDialog<GenericComponent, Title, Footer> {
 	protected pages: Pages
 	protected defaultPage: string
